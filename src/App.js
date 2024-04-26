@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Status from './Status';
+import Square from './Square';
+import Reset from './Reset';
 
 function App() {
   // we will always start with player 1 (X)
@@ -11,19 +14,19 @@ function App() {
   const [player2Winner, setPlayer2Winner] = useState(false);
   const gridID = [1,2,3,4,5,6,7,8,9];
 
-  const winningCombinations = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
-    [1,4,7],
-    [2,5,8],
-    [3,6,9],
-    [1,5,9],
-    [3,5,7]
-  ]
-
 
   useEffect(() => {
+    const winningCombinations = [
+      [1,2,3],
+      [4,5,6],
+      [7,8,9],
+      [1,4,7],
+      [2,5,8],
+      [3,6,9],
+      [1,5,9],
+      [3,5,7]
+    ]
+
     const checkWinnner = () => {
       if(player1Inputs.length >= 3){
         for(const comb of winningCombinations){
@@ -56,7 +59,7 @@ function App() {
     checkTie()
     // console.log(player1Winner)
     // console.log(player2Winner)
-  }, [player1Inputs, player2Inputs, player1Winner, player2Winner, winningCombinations])
+  }, [player1Inputs, player2Inputs, player1Winner, player2Winner])
 
 
 //  console.log(player1Inputs)
